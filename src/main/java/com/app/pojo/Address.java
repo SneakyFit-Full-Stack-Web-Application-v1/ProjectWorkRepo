@@ -2,18 +2,9 @@ package com.app.pojo;
 
 import javax.persistence.Entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import javax.persistence.*;
 @Entity
 @Table(name="address")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Address extends BaseEntity{
 
 	@Column(name="address_line1",nullable = false , length = 50)
