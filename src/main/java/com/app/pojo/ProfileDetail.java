@@ -11,8 +11,8 @@ import javax.persistence.*;
 public class ProfileDetail extends BaseEntity {
 
 	@Column(name="first_name",nullable = false , length = 50)
-
 	private String firstName;
+	
 	@Column(name="last_name",nullable = false , length = 50)
 	private String lastName;
 	
@@ -21,6 +21,7 @@ public class ProfileDetail extends BaseEntity {
 	@Column(name="email",nullable = false , length = 50, unique = true)
 	
 	private String email;
+
 	@Column(name="dob" ,nullable = false  )
 	private LocalDate dob;
 	@Enumerated(EnumType.STRING)
@@ -99,6 +100,24 @@ public class ProfileDetail extends BaseEntity {
 	}
 	public void setAddresses(List<Address> addresses) {
 		this.addresses = addresses;
+	}
+	public List<Rating> getRatings() {
+		return ratings;
+	}
+	public void setRatings(List<Rating> ratings) {
+		this.ratings = ratings;
+	}
+	public List<Review> getReviews() {
+		return reviews;
+	}
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+	public List<PaymentInformation> getPaymentInformations() {
+		return paymentInformations;
+	}
+	public void setPaymentInformations(List<PaymentInformation> paymentInformations) {
+		this.paymentInformations = paymentInformations;
 	}
 	
 	public void addAddress(Address addr) {

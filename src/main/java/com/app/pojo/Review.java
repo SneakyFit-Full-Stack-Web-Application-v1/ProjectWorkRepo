@@ -2,9 +2,13 @@ package com.app.pojo;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "reviews")
 public class Review extends BaseEntity {
 	
 	private String review;

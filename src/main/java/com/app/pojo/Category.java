@@ -1,9 +1,13 @@
 package com.app.pojo;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "category")
 public class Category extends BaseEntity {
 	
 	@Column(name = "category_name", length = 50, nullable = false)

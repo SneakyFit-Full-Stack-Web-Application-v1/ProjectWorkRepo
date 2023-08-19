@@ -1,11 +1,15 @@
 package com.app.pojo;
 
-
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 public class PaymentDetails{
 	
+	@Enumerated(EnumType.STRING)
 	private PaymentMethod paymentMethod;
+	@Enumerated(EnumType.STRING)
 	private PaymentStatus status;
+	
 	private String paymentId;
 	private String razorpayPaymentLinkId;
 	private String razorpayPaymentLinkReferenceId;

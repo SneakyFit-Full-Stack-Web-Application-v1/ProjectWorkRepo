@@ -1,6 +1,6 @@
 package com.app.pojo;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -15,7 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "product")
@@ -66,7 +66,7 @@ public class Product extends BaseEntity{
     @JoinColumn(name="category_id")
     private Category category;
     
-    private LocalDateTime createdAt;
+    private LocalDate createdAt;
 
 	public String getTitle() {
 		return title;
@@ -180,11 +180,11 @@ public class Product extends BaseEntity{
 		this.category = category;
 	}
 
-	public LocalDateTime getCreatedAt() {
+	public LocalDate getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(LocalDateTime createdAt) {
+	public void setCreatedAt(LocalDate createdAt) {
 		this.createdAt = createdAt;
 	}
 	
