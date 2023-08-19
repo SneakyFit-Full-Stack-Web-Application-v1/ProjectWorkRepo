@@ -30,7 +30,7 @@ public class Address extends BaseEntity{
 
 	//	@OneToOne(cascade = CascadeType.ALL) //mandatory 
 //	@MapsId //to tell hibernate : adr PK will be same emp PK + add FK constraint
-//	@ManyToOne
+	@ManyToOne
 	@JoinColumn(name="profile_id")
 	private ProfileDetail profileDetail;
 

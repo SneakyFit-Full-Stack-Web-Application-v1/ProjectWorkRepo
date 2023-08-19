@@ -38,7 +38,13 @@ public class ProfileDetail extends BaseEntity {
 	@OneToMany(mappedBy = "profileDetail", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Rating> ratings = new ArrayList<Rating>();
 	
+	@OneToMany(mappedBy = "profileDetail",cascade = CascadeType.ALL,orphanRemoval = true)
+	private List<Review> reviews=new ArrayList<Review>();
 	
+	@Embedded
+	@ElementCollection
+	@CollectionTable(name = "payment_information",joinColumns = @JoinColumn(name="profile_id"))
+	private List<PaymentInformation> paymentInformations=new ArrayList<PaymentInformation>();
 	
 	public String getFirstName() {
 		return firstName;
@@ -88,12 +94,6 @@ public class ProfileDetail extends BaseEntity {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-//	public Address getAddress() {
-//		return address;
-//	}
-//	public void setAddress(Address address) {
-//		this.address = address;
-//	}
 	public List<Address> getAddresses() {
 		return addresses;
 	}
@@ -110,4 +110,28 @@ public class ProfileDetail extends BaseEntity {
 		addresses.remove(addr);
 		addr.setProfileDetail(null);
 	}
+	
+	public void addRatings(Rating rate)
+	{
+		ratings.add(rate);
+		rate.setProfileDetail(this);
+	}
+	
+	public void removeRatings(Rating rate)
+	{
+		ratings.remove(rate);
+		rate.setProfileDetail(null);
+	}
+	
+	public void addReview(Review review) {
+		reviews.add(review);
+		review.setProfileDetail(this);
+	}
+	
+	public void removeReview(Review review) {
+		reviews.remove(review);
+		review.setProfileDetail(null);
+	}
+	
+	
 }
