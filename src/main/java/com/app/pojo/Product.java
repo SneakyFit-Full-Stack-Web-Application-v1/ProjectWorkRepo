@@ -11,10 +11,13 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -52,17 +55,19 @@ public class Product extends BaseEntity{
 
     @Column(name = "image_url")
     private String imageUrl;
-
+    
+    @JsonIgnore
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Rating>ratings=new ArrayList<>();
     
+    @JsonIgnore
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Review>reviews=new ArrayList<>();
 
     @Column(name = "num_ratings")
     private int numRatings;
-    
-    @ManyToOne
+
+	@ManyToOne
     @JoinColumn(name="category_id")
     private Category category;
     
@@ -208,5 +213,14 @@ public class Product extends BaseEntity{
 	public void removeReview(Review review) {
 		reviews.remove(review);
 		review.setProduct(null);
+	}
+	
+	@Override
+	public String toString() {
+		return "Product [title=" + title + ", description=" + description + ", price=" + price + ", discountedPrice="
+				+ discountedPrice + ", discountPercent=" + discountPercent + ", quantity=" + quantity + ", brand="
+				+ brand + ", color=" + color + ", sizes=" + sizes + ", imageUrl=" + imageUrl + ", ratings=" + ratings
+				+ ", reviews=" + reviews + ", numRatings=" + numRatings + ", category=" + category + ", createdAt="
+				+ createdAt + "]";
 	}
 }

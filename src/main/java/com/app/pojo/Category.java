@@ -2,6 +2,7 @@ package com.app.pojo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -13,7 +14,7 @@ public class Category extends BaseEntity {
 	@Column(name = "category_name", length = 50, nullable = false)
 	private String name;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "parent_category_id")
 	private Category parentCategory;
 	
