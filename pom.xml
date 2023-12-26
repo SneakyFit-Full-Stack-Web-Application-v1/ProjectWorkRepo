@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>final_day16.1</artifactId>
+	<artifactId>Sneakyfit_backend</artifactId>
 	<version>0.0.1</version>
-	<name>final_day16.1</name>
+	<name>Sneakyfit_backend</name>
 	<description>Spring Boot based Backend for EMS n image handling</description>
 	<properties>
 		<java.version>11</java.version>
